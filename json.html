@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weird Deals</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<style type="text/css">
+		img {
+			height: 190px;
+			vertical-align: middle;
+			border-style: none;
+		}
+body {
+	text-align: center;
+	background-color: lightpink;
+}
+		#map {
+        height: 400px;  
+        width: 100%;  
+       }
+
+li {
+	text-decoration: none;
+}
+       h3 {
+       	text-align: center;
+       	color: white;
+       	font-size: 50px;
+       }
+	</style>
+</head>
+<body>
+
+<header>
+	
+</header>
+
+
+<section>
+	
+
+</section>
+
+<h3> Find Us</h3>
+<div id="map"></div>
+
+<script type="text/javascript">
+	
+
+
+var header = document.querySelector('header');
+var section = document.querySelector('section');
+
+var requestURL = 'https://raw.githubusercontent.com/200393612A/JavascriptP4/master/product.json';
+
+
+var request = new XMLHttpRequest();
+
+request.open('GET', requestURL);
+
+request.responseType = 'json';
+
+request.send();
+
+request.onload = function() {
+
+	var weiedDeals = request.response;
+
+
+	console.log(weiedDeals);
+
+	
+	mainHeader(weiedDeals);
+
+	topDeals(weiedDeals);
+}
+
+function mainHeader(jsonObj){
+
+
+	var firstHeader = document.createElement('h1');
+	
+	firstHeader.textContent = jsonObj['Head'];
+
+	header.appendChild(firstHeader);
+
+
+    var secondHeader = document.createElement('h2');
+    
+    secondHeader.textContent = jsonObj['secondHead'];
+    header.appendChild(secondHeader);
+}
+
+
+
+
+function topDeals(jsonObj){
+
+	
+	var dealsOfDay = jsonObj['topDeals'];
+
+
+
+	for (var i = 0; i < dealsOfDay.length; i++){
+
+		
+
+		var article = document.createElement('article');
+		var h2 = document.createElement('h2');
+		var img = document.createElement('img');
+		var p1 = document.createElement('p');
+		var p2 = document.createElement('p');
+		var list = document.createElement('ul');
+
+
+
+		
+
+		img.setAttribute('src', 'https://raw.githubusercontent.com/200393612A/JavascriptP4/master/images/' + dealsOfDay[i].image);
+		img.setAttribute('alt', dealsOfDay[i].name);
+
+		h2.textContent = dealsOfDay[i].name;
+		p1.textContent = 'Price: ' + dealsOfDay[i].price;
+
+		p2.textContent = 'Description: ' + dealsOfDay[i].description;
+
+
+		
+		var fectures = dealsOfDay[i].fectures;
+
+
+
+		for (var j = 0; j < fectures.length; j++){
+
+		var productItem = document.createElement('li');
+
+		productItem.textContent = fectures[j];
+		list.appendChild(productItem);
+		}
+
+
+		article.appendChild(img);
+		article.appendChild(h2);
+		article.appendChild(p1);
+		article.appendChild(p2);
+		article.appendChild(list);
+		section.appendChild(article);
+	}
+}
+
+
+
+
+function initMap(){
+
+
+	var newmap = {lat: 42.314782, lng: -83.034114};
+
+	var map = new google.maps.Map(
+		document.getElementById('map'), {zoom: 12, center: newmap});
+
+	var marker = new google.maps.Marker({position: newmap, map: map});
+}
+
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChXEYsnZV3jo8JTnZ-q6q5uveAOeZ7z4I&callback=initMap">
+</script>
+
+
+
+
+</body>
+
+</html>
