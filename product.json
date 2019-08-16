@@ -1,0 +1,47 @@
+{
+	"Head": "Weird Deals",
+	"secondHead": "This is Weird Deals",
+	"active": true,
+	"topDeals": [
+        {
+            "name": "A tennis ball with a head strap",
+			"price": 5.28,
+			"description": "While billed as a way to improve your reflexes as a boxer",
+			"fectures": [
+				"Tenis Ball Play with fun",
+				"Greate Gift",
+				"Children will love ",
+				"designed to last"
+			],
+			"image": "box.jpeg"
+        },
+           {
+            "name": "A hand squirrel",
+			"price": 11.62,
+			"description": " While it’s all well and good to have a variety of puppets at your disposal, few things rival this strangely-realistic hand squirrel.",
+			"fectures": [
+				"Set of 5 finger puppets",
+				"Includes 4 paws & 1 head",
+				"Transforms hand into a squirrel",
+				"Your hand will climb trees and forage for nuts"
+			],
+			"image": "hand.jpg"
+        },
+           {
+            "name": "Earthworm jerky",
+			"price": 14.99,
+			"description": "Earthworms are already a dietary staple in cultures around the world, thanks to their availability, as well as their high protein and calcium content",
+			"fectures": [
+				"No Artificial Flavoring",
+				"No Artificial Colors",
+				"Great Source of Protein"
+				
+			],
+			"image": "earth.jpeg"
+        }
+	]
+}
+
+
+
+
